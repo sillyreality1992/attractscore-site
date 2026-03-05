@@ -3,88 +3,189 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>AttractScore — Attraction score range</title>
-    <meta name="description" content="AttractScore helps you understand your attraction score as a range, not a single number." />
-    <meta name="theme-color" content="#0b0f1a" />
+    <title>AttractionScore — Real human attraction rating (Global & Regional)</title>
 
-    <!-- Social preview -->
-    <meta property="og:title" content="AttractScore" />
-    <meta property="og:description" content="An attraction score range — simple, private, and easy to understand." />
+    <!-- Primary SEO -->
+    <meta
+      name="description"
+      content="Get an honest attraction score range from real human evaluators. Share a photo/video link (no uploads), and receive Global + Regional ratings with a clear 1–10 range."
+    />
+    <meta name="robots" content="index,follow" />
+    <link rel="canonical" href="https://attractionscore.com/" />
+    <meta name="theme-color" content="#f7f2e0" />
+
+    <!-- Open Graph / Social -->
+    <meta property="og:site_name" content="AttractionScore" />
+    <meta property="og:title" content="AttractionScore — Real human attraction rating" />
+    <meta
+      property="og:description"
+      content="Share a photo/video link. Real people rate you. Get a realistic 1–10 range plus Global & Regional results."
+    />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://attractscore.com" />
-    <!-- Add later: <meta property="og:image" content="https://attractscore.com/og.png" /> -->
+    <meta property="og:url" content="https://attractionscore.com/" />
+    <!-- Add later for nicer previews -->
+    <meta property="og:image" content="https://attractionscore.com/og.png" />
+    <meta property="og:image:alt" content="AttractionScore app preview" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="AttractionScore — Real human attraction rating" />
+    <meta
+      name="twitter:description"
+      content="Share a photo/video link. Real people rate you. Get a realistic 1–10 range plus Global & Regional results."
+    />
+    <meta name="twitter:image" content="https://attractionscore.com/og.png" />
+
+    <!-- Icons (optional but recommended) -->
+    <link rel="icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+    <!-- Structured data (SEO) -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "MobileApplication",
+        "name": "AttractionScore",
+        "operatingSystem": "Android",
+        "applicationCategory": "BeautyApplication",
+        "url": "https://attractionscore.com/",
+        "downloadUrl": "https://play.google.com/store/apps/details?id=com.attractionscore",
+        "description": "Get an honest attraction score range from real human evaluators. Share a photo/video link (no uploads), and receive Global + Regional results.",
+        "publisher": {
+          "@type": "Organization",
+          "name": "AttractionScore",
+          "url": "https://attractionscore.com/"
+        }
+      }
+    </script>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Do you store my photos or videos?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. You share a link to your photo or video. You keep your media where it is, and it’s reviewed for rating without uploading to our servers."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Why is it a range instead of one exact number?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Attraction is subjective. A range is more honest and avoids fake precision."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What’s the difference between Global and Regional ratings?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Global reflects how people rate your photos overall. Regional reflects how people in your selected region tend to rate you."
+            }
+          }
+        ]
+      }
+    </script>
 
     <style>
       :root{
-        --bg:#070A12; --card:#0c1222; --text:#e9eefc; --muted:#a7b2d1;
-        --line:rgba(255,255,255,.10);
-        --accent1:#7c3aed; --accent2:#06b6d4;
+        --bg:#f7f2e0;
+        --card:#ffffff;
+        --text:#3a3d3a;
+        --muted:#707b6d;
+        --line:rgba(58,61,58,.14);
+        --accent:#bf897f;
+        --accent2:#dac2b2;
+        --shadow: 0 18px 50px rgba(0,0,0,.08);
       }
       *{box-sizing:border-box}
       body{
-        margin:0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
-        color:var(--text); background: radial-gradient(1200px 600px at 20% 0%, rgba(124,58,237,.25), transparent 60%),
-                              radial-gradient(900px 500px at 80% 10%, rgba(6,182,212,.20), transparent 60%),
-                              var(--bg);
+        margin:0;
+        font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
+        color:var(--text);
+        background:
+          radial-gradient(900px 500px at 20% 0%, rgba(191,137,127,.22), transparent 60%),
+          radial-gradient(900px 500px at 80% 10%, rgba(218,194,178,.30), transparent 60%),
+          var(--bg);
       }
       a{color:inherit; text-decoration:none}
-      .wrap{max-width:1100px; margin:0 auto; padding:28px 18px 70px}
+      .wrap{max-width:1100px; margin:0 auto; padding:26px 18px 70px}
+      .skip{position:absolute; left:-9999px; top:auto}
+      .skip:focus{left:18px; top:14px; background:#fff; padding:10px 12px; border-radius:10px; z-index:999; box-shadow:var(--shadow)}
       .nav{display:flex; align-items:center; justify-content:space-between; gap:12px}
-      .brand{display:flex; align-items:center; gap:10px; font-weight:700}
+      .brand{display:flex; align-items:center; gap:10px; font-weight:800}
       .logo{
         width:34px; height:34px; border-radius:12px;
-        background: linear-gradient(135deg, var(--accent1), var(--accent2));
-        box-shadow: 0 10px 30px rgba(124,58,237,.20);
+        background: linear-gradient(135deg, var(--accent), var(--accent2));
+        box-shadow: 0 12px 30px rgba(191,137,127,.25);
       }
-      .navlinks{display:flex; gap:16px; color:var(--muted); font-weight:600}
+      .navlinks{display:flex; gap:16px; color:var(--muted); font-weight:700}
       .navlinks a:hover{color:var(--text)}
-      .hero{margin-top:46px; display:grid; grid-template-columns: 1.2fr .8fr; gap:22px; align-items:center}
+      .hero{margin-top:44px; display:grid; grid-template-columns: 1.15fr .85fr; gap:22px; align-items:center}
       .pill{
         display:inline-flex; gap:8px; align-items:center; padding:8px 12px; border-radius:999px;
-        border:1px solid var(--line); background: rgba(255,255,255,.03); color: var(--muted);
-        width: fit-content;
+        border:1px solid var(--line); background: rgba(255,255,255,.55);
+        color: var(--muted); width: fit-content;
       }
       h1{margin:14px 0 10px; font-size:52px; line-height:1.05; letter-spacing:-.02em}
-      .sub{color:var(--muted); font-size:18px; line-height:1.55; max-width:52ch}
-      .cta{margin-top:18px; display:flex; gap:12px; flex-wrap:wrap}
+      .sub{color:var(--muted); font-size:18px; line-height:1.55; max-width:58ch}
+      .cta{margin-top:18px; display:flex; gap:12px; flex-wrap:wrap; align-items:center}
       .btn{
         padding:12px 14px; border-radius:14px; border:1px solid var(--line);
-        background: rgba(255,255,255,.04); font-weight:700;
+        background: rgba(255,255,255,.65); font-weight:800;
+        display:inline-flex; align-items:center; gap:10px;
+        transition: transform .12s ease;
       }
       .btn.primary{
-        border:0; background: linear-gradient(135deg, var(--accent1), var(--accent2));
-        box-shadow: 0 12px 30px rgba(6,182,212,.18);
+        border:0; color:#fff;
+        background: linear-gradient(135deg, var(--accent), #a67167);
+        box-shadow: 0 14px 30px rgba(191,137,127,.25);
+      }
+      .btn.disabled{
+        opacity:.55; cursor:not-allowed;
       }
       .btn:hover{transform: translateY(-1px)}
       .btn:active{transform: translateY(0)}
+      .fineprint{font-size:12px; color:var(--muted); margin-top:10px}
       .mock{
         border-radius:22px; border:1px solid var(--line);
-        background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
-        padding:18px;
+        background: rgba(255,255,255,.60);
+        box-shadow: var(--shadow);
+        padding:16px;
       }
       .screen{
-        border-radius:18px; border:1px solid rgba(255,255,255,.12);
-        background: radial-gradient(700px 260px at 60% 0%, rgba(124,58,237,.18), transparent 60%),
-                    rgba(0,0,0,.35);
-        height:360px;
+        border-radius:18px; border:1px solid rgba(58,61,58,.12);
+        background: linear-gradient(180deg, rgba(255,255,255,.70), rgba(255,255,255,.45));
+        min-height:360px;
         display:flex; align-items:center; justify-content:center;
-        color: rgba(233,238,252,.75); text-align:center; padding:18px;
+        text-align:center; padding:18px;
       }
+      .screen strong{display:block; margin-bottom:6px}
       .grid{margin-top:40px; display:grid; grid-template-columns: repeat(3, 1fr); gap:14px}
       .card{
-        border:1px solid var(--line); background: rgba(255,255,255,.03);
-        border-radius:18px; padding:16px;
+        border:1px solid var(--line);
+        background: rgba(255,255,255,.70);
+        border-radius:18px;
+        padding:16px;
+        box-shadow: 0 10px 30px rgba(0,0,0,.04);
       }
       .card h3{margin:2px 0 6px}
       .card p{margin:0; color:var(--muted); line-height:1.55}
       .section{margin-top:44px}
       .section h2{margin:0 0 10px; font-size:26px}
+      .twoCol{display:grid; grid-template-columns: 1fr 1fr; gap:14px}
+      .steps .card{min-height:100%}
       .faq{display:grid; grid-template-columns:1fr; gap:10px}
       details{
         border:1px solid var(--line); border-radius:16px; padding:14px 14px;
-        background: rgba(255,255,255,.03);
+        background: rgba(255,255,255,.70);
       }
-      summary{cursor:pointer; font-weight:700}
+      summary{cursor:pointer; font-weight:800}
       details p{color:var(--muted); margin:10px 0 0; line-height:1.6}
       .footer{
         margin-top:56px; padding-top:18px; border-top:1px solid var(--line);
@@ -92,23 +193,37 @@
         color:var(--muted); font-size:14px;
       }
       .tiny-links{display:flex; gap:14px; flex-wrap:wrap}
+      .badge{
+        font-size:12px;
+        padding:6px 10px;
+        border-radius:999px;
+        border:1px solid var(--line);
+        background: rgba(255,255,255,.65);
+        color: var(--muted);
+        font-weight:800;
+      }
       @media (max-width: 900px){
         .hero{grid-template-columns:1fr; margin-top:34px}
         h1{font-size:40px}
         .grid{grid-template-columns:1fr}
+        .twoCol{grid-template-columns:1fr}
         .navlinks{display:none}
       }
     </style>
   </head>
 
   <body>
+    <a class="skip" href="#main">Skip to content</a>
+
     <div class="wrap">
-      <header class="nav">
+      <header class="nav" aria-label="Top navigation">
         <div class="brand">
           <div class="logo" aria-hidden="true"></div>
-          <div>AttractScore</div>
+          <div>AttractionScore</div>
+          <span class="badge" title="Ad-supported">Contains ads</span>
         </div>
-        <nav class="navlinks">
+
+        <nav class="navlinks" aria-label="Site">
           <a href="#features">Features</a>
           <a href="#how">How it works</a>
           <a href="#faq">FAQ</a>
@@ -116,98 +231,149 @@
         </nav>
       </header>
 
-      <main class="hero">
+      <main id="main" class="hero">
         <div>
-          <div class="pill">✨ Attraction score as a <strong>range</strong> (not a single number)</div>
-          <h1>Understand how you’re perceived — simply.</h1>
+          <div class="pill">✨ Real human rating • Global + Regional • 1–10 <strong>range</strong></div>
+
+          <h1>Get an honest attraction score range — from real people.</h1>
+
           <p class="sub">
-            AttractScore gives you an attraction score range based on feedback and signals.
-            Because attraction is subjective, we show a range to keep it realistic and easy to understand.
+            AttractionScore helps you understand how you’re perceived with a realistic
+            <strong>score range</strong> (not a fake exact number).
+            You share a photo or video <strong>link</strong>, real evaluators review it, and you get
+            both <strong>Global</strong> and <strong>Regional</strong> results.
           </p>
 
           <div class="cta">
-            <!-- Replace # with your real links -->
-            <a class="btn primary" href="#" target="_blank" rel="noreferrer">Download on Play Store</a>
-            <a class="btn" href="#" target="_blank" rel="noreferrer">Download on App Store</a>
+            <a
+              class="btn primary"
+              href="https://play.google.com/store/apps/details?id=com.attractionscore"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Download AttractionScore on Google Play"
+            >
+              Download on Google Play →
+            </a>
+
+            <span class="btn disabled" aria-disabled="true" title="iOS coming later">
+              iOS coming soon
+            </span>
+
             <a class="btn" href="#how">See how it works</a>
+          </div>
+
+          <div class="fineprint">
+            Privacy-first: share links (no uploads). Results time can vary depending on queue.
           </div>
         </div>
 
-        <div class="mock">
+        <div class="mock" aria-label="App preview">
           <div class="screen">
             <div>
-              <div style="font-weight:800; font-size:18px; margin-bottom:6px;">Your app screenshots here</div>
-              <div style="opacity:.85">Later you can replace this block with images: <br/>/img/screen1.png, /img/screen2.png</div>
+              <strong>Put your app screenshots here</strong>
+              <div style="color:var(--muted); line-height:1.5">
+                Replace this block with images, for example:
+                <br />
+                <code>/img/screen1.png</code>, <code>/img/screen2.png</code>, <code>/img/screen3.png</code>
+              </div>
             </div>
           </div>
         </div>
       </main>
 
-      <section id="features" class="grid">
+      <section id="features" class="grid" aria-label="Features">
         <div class="card">
-          <h3>Range, not a guess</h3>
-          <p>We show a score range because a single number can feel fake for something subjective.</p>
+          <h3>Rated by real people</h3>
+          <p>No AI guessing. Your rating is based on real human feedback.</p>
         </div>
         <div class="card">
-          <h3>Regional context</h3>
-          <p>See how your perception can differ by region, with clear explanation.</p>
+          <h3>Global + Regional results</h3>
+          <p>See how you’re perceived worldwide and in your selected region.</p>
         </div>
         <div class="card">
-          <h3>Privacy-first</h3>
-          <p>Build trust with simple privacy messaging and transparent scoring notes.</p>
+          <h3>No uploads</h3>
+          <p>Share a photo/video link (Google Drive, Instagram, iCloud, etc.). You keep control of your media.</p>
         </div>
       </section>
 
-      <section id="how" class="section">
+      <section class="section">
+        <h2>What you get</h2>
+        <div class="twoCol">
+          <div class="card">
+            <h3>1–10 range (more realistic)</h3>
+            <p>A range is more honest for something subjective. It avoids fake precision and gives you a clearer picture.</p>
+          </div>
+          <div class="card">
+            <h3>Clear explanation</h3>
+            <p>We keep it simple: what the range means, and how Global vs Regional results can differ.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="how" class="section steps" aria-label="How it works">
         <h2>How it works</h2>
         <div class="grid">
           <div class="card">
             <h3>1) Create a request</h3>
-            <p>Users submit the details you need to generate an attraction score range.</p>
+            <p>Select your gender and region, then paste your photo/video links.</p>
           </div>
           <div class="card">
-            <h3>2) Signals → range</h3>
-            <p>We combine signals/feedback and convert it into a realistic range.</p>
+            <h3>2) Real evaluators review</h3>
+            <p>Your media is reviewed through an anonymous evaluation process by real people.</p>
           </div>
           <div class="card">
-            <h3>3) Clear explanation</h3>
-            <p>You also get context: global range vs regional perception.</p>
+            <h3>3) Get your results</h3>
+            <p>Receive your attraction score as a range, plus Global & Regional results.</p>
           </div>
         </div>
       </section>
 
-      <section id="faq" class="section">
+      <section id="faq" class="section" aria-label="FAQ">
         <h2>FAQ</h2>
         <div class="faq">
           <details>
-            <summary>Why a range instead of an exact score?</summary>
-            <p>Because attraction is subjective. A range is more honest, and it reduces false precision.</p>
+            <summary>Do you store my photos or videos?</summary>
+            <p>
+              No. You share a link to your photo or video (for example Google Drive, Instagram, iCloud).
+              You keep your media where it is — no direct uploads to our servers.
+            </p>
           </details>
+
           <details>
-            <summary>Is it always accurate?</summary>
-            <p>We try to be as accurate as possible, but results can still deviate because people and contexts vary.</p>
+            <summary>Why a range instead of one exact score?</summary>
+            <p>Attraction is subjective. A range is more honest and reduces false precision.</p>
           </details>
+
           <details>
-            <summary>How can I contact you?</summary>
-            <p>Email us at <a href="mailto:support@attractscore.com">support@attractscore.com</a> (change if needed).</p>
+            <summary>What’s the difference between Global and Regional?</summary>
+            <p>
+              Global reflects overall ratings from people worldwide. Regional reflects ratings relative to your selected region.
+            </p>
+          </details>
+
+          <details>
+            <summary>Is this app on iOS?</summary>
+            <p>Not yet. Right now it’s Android only. iOS is planned for later.</p>
           </details>
         </div>
       </section>
 
-      <section id="contact" class="section">
+      <section id="contact" class="section" aria-label="Contact">
         <h2>Contact</h2>
         <div class="card">
-          <p style="margin:0; color:var(--muted)">
-            For support & partnerships: <a href="mailto:support@attractscore.com">support@attractscore.com</a>
+          <p style="margin:0; color:var(--muted); line-height:1.7">
+            Support: <a href="mailto:support@attractionscore.com"><strong>support@attractionscore.com</strong></a>
+            <br />
+            For partnerships: <a href="mailto:support@attractionscore.com"><strong>support@attractionscore.com</strong></a>
           </p>
         </div>
       </section>
 
-      <footer class="footer">
-        <div>© <span id="y"></span> AttractScore</div>
+      <footer class="footer" aria-label="Footer">
+        <div>© <span id="y"></span> AttractionScore</div>
         <div class="tiny-links">
-          <a href="#" target="_blank" rel="noreferrer">Privacy</a>
-          <a href="#" target="_blank" rel="noreferrer">Terms</a>
+          <a href="https://sillyreality1992.github.io/attractionscore-privacy/" target="_blank" rel="noopener noreferrer">Privacy</a>
+          <a href="/terms" rel="nofollow">Terms</a>
         </div>
       </footer>
     </div>
